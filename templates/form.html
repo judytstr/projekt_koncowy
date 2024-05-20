@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ocena Zdenerwowania</title>
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+    <style>
+        body {
+            padding: 2em;
+            background-color: #f9f9f9;
+            font-family: 'Arial', sans-serif;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 2em;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #ff69b4;
+            text-align: center;
+            margin-bottom: 1.5em;
+        }
+        .form-group label {
+            font-weight: bold;
+        }
+        .btn-primary {
+            background-color: #ff69b4;
+            border-color: #ff69b4;
+            width: 100%;
+        }
+        .history-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #ff69b4;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Ocena zdenerwowania na partnera</h1>
+        <form method="POST">
+            <div class="form-group">
+                <label for="cycle_length">Podaj długość swojego cyklu (w dniach):</label>
+                <input type="text" id="cycle_length" name="cycle_length" class="form-input" required>
+            </div>
+
+            <div class="form-group">
+                <label for="last_period_date">Podaj datę ostatniej miesiączki (DD-MM-YYYY):</label>
+                <input type="text" id="last_period_date" name="last_period_date" class="form-input" required>
+            </div>
+
+            <div class="form-group">
+                <label>Czy Twój partner zapomniał o czymś?</label><br>
+                <label class="form-radio">
+                    <input type="radio" name="q1" value="tak" required>
+                    <i class="form-icon"></i> Tak
+                </label>
+                <label class="form-radio">
+                    <input type="radio" name="q1" value="nie">
+                    <i class="form-icon"></i> Nie
+                </label>
+            </div>
+
+            <div class="form-group">
+                <label>Czy Twój partner nie zrobił czegoś?</label><br>
+                <label class="form-radio">
+                    <input type="radio" name="q2" value="tak" required>
+                    <i class="form-icon"></i> Tak
+                </label>
+                <label class="form-radio">
+                    <input type="radio" name="q2" value="nie">
+                    <i class="form-icon"></i> Nie
+                </label>
+            </div>
+
+            <div class="form-group">
+                <label>Czy Twój partner powiedział Ci coś niemiłego?</label><br>
+                <label class="form-radio">
+                    <input type="radio" name="q3" value="tak" required>
+                    <i class="form-icon"></i> Tak
+                </label>
+                <label class="form-radio">
+                    <input type="radio" name="q3" value="nie">
+                    <i class="form-icon"></i> Nie
+                </label>
+            </div>
+
+            <div class="form-group">
+                <label>Czy Twój partner ostatnio poświęca Ci za mało czasu?</label><br>
+                <label class="form-radio">
+                    <input type="radio" name="q4" value="tak" required>
+                    <i class="form-icon"></i> Tak
+                </label>
+                <label class="form-radio">
+                    <input type="radio" name="q4" value="nie">
+                    <i class="form-icon"></i> Nie
+                </label>
+            </div>
+
+            <div class="form-group">
+                <label>Czy Twój partner wydaje się być ostatnio niezainteresowany Tobą i/lub tym, jak się czujesz?</label><br>
+                <label class="form-radio">
+                    <input type="radio" name="q5" value="tak" required>
+                    <i class="form-icon"></i> Tak
+                </label>
+                <label class="form-radio">
+                    <input type="radio" name="q5" value="nie">
+                    <i class="form-icon"></i> Nie
+                </label>
+            </div>
+
+            <div class="form-group">
+                <label>Czy coś lub ktoś w pracy zdenerwowało Cię dzisiaj?</label><br>
+                <label class="form-radio">
+                    <input type="radio" name="q6" value="tak" required>
+                    <i class="form-icon"></i> Tak
+                </label>
+                <label class="form-radio">
+                    <input type="radio" name="q6" value="nie">
+                    <i class="form-icon"></i> Nie
+                </label>
+            </div>
+
+            <div class="form-group">
+                <label>Czy spałaś dzisiaj co najmniej 8 godzin?</label><br>
+                <label class="form-radio">
+                    <input type="radio" name="q7" value="tak" required>
+                    <i class="form-icon"></i> Tak
+                </label>
+                <label class="form-radio">
+                    <input type="radio" name="q7" value="nie">
+                    <i class="form-icon"></i> Nie
+                </label>
+            </div>
+
+            <div class="form-group">
+                <label>Czy jesteś głodna?</label><br>
+                <label class="form-radio">
+                    <input type="radio" name="q8" value="tak" required>
+                    <i class="form-icon"></i> Tak
+                </label>
+                <label class="form-radio">
+                    <input type="radio" name="q8" value="nie">
+                    <i class="form-icon"></i> Nie
+                </label>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Sprawdź</button>
+        </form>
+        <a href="{{ url_for('history') }}" class="history-link">Zobacz historię nastrojów</a>
+    </div>
+</body>
+</html>

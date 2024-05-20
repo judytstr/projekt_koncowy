@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historia Nastroju</title>
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+    <style>
+        body {
+            padding: 2em;
+            background-color: #f9f9f9;
+            font-family: 'Arial', sans-serif;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 2em;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #ff69b4;
+            text-align: center;
+            margin-bottom: 1.5em;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1.5em;
+        }
+        th, td {
+            padding: 0.75em;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #ff69b4;
+            color: white;
+        }
+        .btn-back {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background-color: #ff69b4;
+            color: white;
+            padding: 1em;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Historia Nastroju</h1>
+        <table>
+            <tr>
+                <th>Data</th>
+                <th>Wynik</th>
+            </tr>
+            {% for entry in entries %}
+            <tr>
+                <td>{{ entry.date }}</td>
+                <td>{{ entry.result }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <a href="{{ url_for('home') }}" class="btn-back">Powrót do formularza</a>
+    </div>
+</body>
+</html>
